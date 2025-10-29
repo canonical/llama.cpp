@@ -133,7 +133,7 @@ jobs:
         id: depends
         run: |
           sudo apt-get update
-          sudo apt-get install build-essential
+          sudo apt-get install build-essential nvidia-cuda-toolkit
 
       - name: Build
         id: cmake_build
@@ -219,6 +219,9 @@ jobs:
 
     needs:
       - amd64-avx2
+      - amd64-avx512
+      - amd64-cuda
+      - arm64-neon
 
     steps:
       - name: Clone
